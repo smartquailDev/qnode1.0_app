@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
  
 jobs:
-  qnode01_test:
+  qnode10_test:
     runs-on: ubuntu-latest
     defaults:
       run:
