@@ -5,14 +5,14 @@ on:
   workflow_dispatch:
  
 jobs:
-  qnode10_test:
+  qnode01_test:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./qnode10_app
+        working-directory: ./qnode01_app
     env:
       DJANGO_SECRET_KEY: test-key-not-good
-      NAME_DB: node0db
+      NAME_DB: node01db
       PASSWORD_DB: smartquailadmindb
       USER_DB: smartquailadmin
       HOST_DB: smartquaildd
