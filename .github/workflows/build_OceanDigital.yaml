@@ -10,10 +10,10 @@ on:
  
 jobs:
   test_qnode01_app:
-    uses: smartquailDev/qnode10_app/.github/workflows/test-qnode10_app.yaml@main
+    uses: smartquailDev/qnode0_app/.github/workflows/test-qnode0_app.yaml@main
   Docker_qnode01:
     runs-on: ubuntu-latest
-    needs: [test_qnode10_app]
+    needs: [test_qnode0_app]
     env:
       DJANGO_SECRET_KEY: test-key-not-good
     steps:
@@ -29,12 +29,12 @@ jobs:
       working-directory: ./qnode0_k8s
       run: | 
         docker build -f Dockerfile \
-            -t registry.digitalocean.com/smartquail/qnode10_app:latest \
-            -t registry.digitalocean.com/smartquail/qnode10_app:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5} \
+            -t registry.digitalocean.com/smartquail/qnode0_app:latest \
+            -t registry.digitalocean.com/smartquail/qnode0_app:${GITHUB_SHA::7}-${GITHUB_RUN_ID::5} \
             .
     - name: Push Image
       run: | 
-        docker push registry.digitalocean.com/smartquail/qnode10_app --all-tags
+        docker push registry.digitalocean.com/smartquail/qnode0_app --all-tags
     - name: k8s cluster kubeconfig file with /short-lived creds
       run: |
         doctl kubernetes cluster kubeconfig save --expiry-seconds 600 ${{env.CLUSTER_NAME}}

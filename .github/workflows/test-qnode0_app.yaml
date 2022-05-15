@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./qnode01_app
+        working-directory: ./qnode0_app
     env:
       DJANGO_SECRET_KEY: test-key-not-good
-      NAME_DB: node01db
+      NAME_DB: node0db
       PASSWORD_DB: smartquailadmindb
       USER_DB: smartquailadmin
       HOST_DB: smartquaildd
