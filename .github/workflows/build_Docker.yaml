@@ -25,7 +25,7 @@ jobs:
         username: ${{ secrets.DOCKER_HUB_USERNAME }}
         password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
     - name: Build container image
-      working-directory: ./qnode10_k8s
+      working-directory: ./qnode1.0_k8s
       run: | 
         docker build -f Dockerfile \
             -t smartquail/qnode10_app:latest \
