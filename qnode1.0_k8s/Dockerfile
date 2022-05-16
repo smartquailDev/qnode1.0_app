@@ -6,16 +6,19 @@ ENV PYTHONUNBUFFERED 1
 RUN apk add --no-cache git
 ARG username=smartquailDev
 ARG password=ms1719183830
-RUN git clone https://github.com/smartquailDev/qnode0_app.git
+RUN git clone https://github.com/smartquailDev/qnode1.0_app.git
 
 #COPY . /qnode0_app
 #COPY ./qnode0_app.dev/qnode0_app_env_dev/qnode0_app/ /qnode0_app
 COPY ./scripts /scripts
-COPY ./.env /qnode0_app/.env 
+#COPY ./.env /qnode10_app/.env 
 #No olvidar sacar las variables de entorno.
+COPY ./requirements.txt /requirements.txt
 
 
-WORKDIR /qnode0_app
+
+
+WORKDIR /qnode1.0_app/qnode10_app/
 EXPOSE 8000 443 
 EXPOSE 25
 
@@ -36,17 +39,17 @@ RUN python -m venv /py && \
     apk del openssl-dev  &&  \
     apk add libressl-dev  && \
     apk del .tmp-deps && \
-    adduser --disabled-password --no-create-home qnode0 && \
+    adduser --disabled-password --no-create-home qnode10 && \
     mkdir -p /vol/web/static && \
     mkdir -p /vol/web/media && \
-    chown -R qnode0:qnode0 /vol && \
-    chmod -R 755 /qnode0_app/ && \
+    chown -R qnode10:qnode10 /vol && \
+    chmod -R 755 /qnode10_app/ && \
     chmod -R 755 /vol  && \
     chmod -R 755 /scripts  && \
     chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"
 
-USER qnode0
+USER qnode10
 
 CMD ["run.sh"]
