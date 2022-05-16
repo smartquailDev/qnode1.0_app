@@ -35,7 +35,7 @@ RUN python -m venv /py && \
     apk add openssl-dev && \
     #/py/bin/pip install  rust  &&  \
     #/py/bin/pip install   py3-kiwisolver &&  \
-    /py/bin/pip install -r requirements.txt && \
+    /py/bin/pip install -r /requirements.txt && \
     apk del openssl-dev  &&  \
     apk add libressl-dev  && \
     apk del .tmp-deps && \
@@ -43,7 +43,7 @@ RUN python -m venv /py && \
     mkdir -p /vol/web/static && \
     mkdir -p /vol/web/media && \
     chown -R qnode10:qnode10 /vol && \
-    chmod -R 755 /qnode10_app/ && \
+    #chmod -R 755 /qnode10_app/ && \
     chmod -R 755 /vol  && \
     chmod -R 755 /scripts  && \
     chmod -R +x /scripts
