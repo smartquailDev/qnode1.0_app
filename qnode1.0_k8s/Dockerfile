@@ -32,6 +32,7 @@ RUN python -m venv /py && \
     apk add jpeg-dev   zlib-dev libjpeg build-base  wget  && \
     apk del libressl-dev && \
     apk add busybox-extras && \
+     apk add gtk+3.0 pango && \
     apk add openssl-dev && \
     #/py/bin/pip install  rust  &&  \
     #/py/bin/pip install   py3-kiwisolver &&  \
