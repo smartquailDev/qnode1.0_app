@@ -38,7 +38,7 @@ RUN python -m venv /py && \
     apk del openssl-dev  &&  \
     apk add libressl-dev  && \
     apk del .tmp-deps && \
-    adduser --disabled-password --no-create-home qnode01 && \
+    adduser --disabled-password --no-create-home qnode10 && \
     mkdir -p /qnode1.0_app/qnode10_app/static && \
    # mkdir -p /qnode0.0_app/qnode0_app/static/media && \
     chmod -R 755 /qnode1.0_app/qnode10_app/static  && \
