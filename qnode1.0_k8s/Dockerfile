@@ -52,6 +52,7 @@ RUN python -m venv /py && \
     
     mkdir -p /qnode1.0_app/qnode10_app/staticfiles && \
     chmod -R 755 /qnode1.0_app/qnode10_app/staticfiles  && \
+    chmod -R 755 /qnode1.0_app/qnode10_app/staticfiles/css  && \
     chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/staticfiles && \
 
     #chmod -R 755 /qnode0.0_app/qnode0_app/static/media  && \
