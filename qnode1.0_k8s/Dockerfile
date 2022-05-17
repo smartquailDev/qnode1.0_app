@@ -21,6 +21,7 @@ WORKDIR /qnode1.0_app/qnode10_app/
 EXPOSE 443 
 EXPOSE 25
 EXPOSE 9000
+EXPOSE 587
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
