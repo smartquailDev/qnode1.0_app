@@ -29,8 +29,10 @@ RUN python -m venv /py && \
     apk add build-base  postgresql-dev gcc musl-dev python3-dev linux-headers && \
     apk add libffi-dev build-base py3-cffi py3-cryptography && \
     apk add jpeg-dev   zlib-dev libjpeg build-base  wget  && \
+    apk add gtk+3.0 pango && \
     apk del libressl-dev && \
     apk add busybox-extras && \
+    apk add gtk+3.0 pango && \
     apk add openssl-dev && \
     #/py/bin/pip install  rust  &&  \
     #/py/bin/pip install   py3-kiwisolver &&  \
