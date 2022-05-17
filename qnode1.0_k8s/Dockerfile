@@ -19,7 +19,7 @@ COPY ./requirements.txt /requirements.txt
 
 
 WORKDIR /qnode1.0_app/qnode10_app/
-EXPOSE 8000 443 
+EXPOSE 9000 443 
 EXPOSE 25
 
 
@@ -53,10 +53,10 @@ RUN python -m venv /py && \
     mkdir -p /qnode1.0_app/qnode10_app/staticfiles && \
     chmod -R 755 /qnode1.0_app/qnode10_app/staticfiles  && \
     #chmod -R 755 /qnode1.0_app/qnode10_app/staticfiles/css  && \
-    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/staticfiles && \
+    #chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/staticfiles && \
 
     #chmod -R 755 /qnode0.0_app/qnode0_app/static/media  && \
-    #chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/static && \
+    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/static && \
     #chown -R qnode0:qnode0 /qnode0.0_app/qnode0_app/static/media && \
 
     mkdir -p /qnode1.0_app/qnode10_app/run/ && \
