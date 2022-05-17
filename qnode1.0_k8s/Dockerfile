@@ -41,12 +41,35 @@ RUN python -m venv /py && \
     apk add libressl-dev  && \
     apk del .tmp-deps && \
     adduser --disabled-password --no-create-home qnode10 && \
-    mkdir -p /vol/web/static && \
-    mkdir -p /vol/web/media && \
-    chown -R qnode10:qnode10 /vol && \
-    #chmod -R 755 /qnode10_app/ && \
-    chmod -R 755 /vol  && \
+    
+    mkdir -p /qnode1.0_app/qnode10_app/static && \
+   # mkdir -p /qnode0.0_app/qnode0_app/static/media && \
+    chmod -R 755 /qnode1.0_app/qnode10_app/static  && \
+
+    mkdir -p /qnode1.0_app/qnode10_app/media && \
+    chmod -R 755 /qnode1.0_app/qnode10_app/media  && \
+    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/media && \
+    
+    mkdir -p /qnode1.0_app/qnode10_app/staticfiles && \
+    chmod -R 755 /qnode1.0_app/qnode10_app/staticfiles  && \
+    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/staticfiles && \
+
+    #chmod -R 755 /qnode0.0_app/qnode0_app/static/media  && \
+    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/static && \
+    #chown -R qnode0:qnode0 /qnode0.0_app/qnode0_app/static/media && \
+
+    mkdir -p /qnode1.0_app/qnode10_app/run/ && \
+    mkdir -p /var/log/gunicorn &&\
+    chown -R qnode10:qnode10 /var/log/gunicorn &&\
+    
+    chmod -R 755 /qnode1.0_app/qnode10_app/ && \
+    
     chmod -R 755 /scripts  && \
+    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/run/  && \
+    chmod -R 755 /var/log/gunicorn  && \
+    
+    chmod -R u+x /scripts/gunicorn_run.sh &&\
+    chmod -R u+x /scripts/run.sh &&\
     chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"
