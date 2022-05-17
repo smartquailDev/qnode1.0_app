@@ -20,7 +20,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+#SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
+
+SECRET_KEY = 'dsfsadf'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -67,9 +69,11 @@ INSTALLED_APPS = [
     #'webapp_0',
     #'streams',
     'widget_tweaks',
-    #'webapp',
-    #'images',
-    #'actions',
+    'shop',
+    'coupons',
+    'cart',
+    'orders',
+    'payment',
     'baton.autodiscover',
     'storages',
     'social_django',
@@ -175,6 +179,22 @@ BATON = {
 #WEBAPP SETTINGS
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#Ecommerce App
+CART_SESSION_ID = 'cart'
+
+BRAINTREE_MERCHANT_ID = os.environ.get('BRAINTREE_M_ID')
+BRAINTREE_PUBLIC_KEY = os.environ.get('BRAINTREE_KEY')
+BRAINTREE_PRIVATE_KEY = os.environ.get('BRAINTREE_PRIVATE_KEY')
+
+from braintree import Configuration, Environment
+# para desplegar cambiar sandbox con Production
+Configuration.configure(
+    Environment.Sandbox,
+    BRAINTREE_MERCHANT_ID,
+    BRAINTREE_PUBLIC_KEY,
+    BRAINTREE_PRIVATE_KEY
+)
 
 
 AUTHENTICATION_BACKENDS = [
