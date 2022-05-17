@@ -10,18 +10,17 @@ RUN git clone https://github.com/smartquailDev/qnode1.0_app.git
 
 #COPY . /qnode0_app
 #COPY ./qnode0_app.dev/qnode0_app_env_dev/qnode0_app/ /qnode0_app
-COPY ./scripts /scripts
-#COPY ./.env /qnode10_app/.env 
-#No olvidar sacar las variables de entorno.
 COPY ./requirements.txt /requirements.txt
+COPY ./scripts /scripts
 
-
+#COPY ./.env /qnode0.1_app/qnode01_app/.env 
+#No olvidar sacar las variables de entorno.
 
 
 WORKDIR /qnode1.0_app/qnode10_app/
-EXPOSE 9000 443 
+EXPOSE 443 
 EXPOSE 25
-
+EXPOSE 9000
 
 RUN python -m venv /py && \
     /py/bin/pip install --upgrade pip && \
@@ -32,7 +31,6 @@ RUN python -m venv /py && \
     apk add jpeg-dev   zlib-dev libjpeg build-base  wget  && \
     apk del libressl-dev && \
     apk add busybox-extras && \
-     apk add gtk+3.0 pango && \
     apk add openssl-dev && \
     #/py/bin/pip install  rust  &&  \
     #/py/bin/pip install   py3-kiwisolver &&  \
@@ -40,8 +38,7 @@ RUN python -m venv /py && \
     apk del openssl-dev  &&  \
     apk add libressl-dev  && \
     apk del .tmp-deps && \
-    adduser --disabled-password --no-create-home qnode10 && \
-    
+    adduser --disabled-password --no-create-home qnode01 && \
     mkdir -p /qnode1.0_app/qnode10_app/static && \
    # mkdir -p /qnode0.0_app/qnode0_app/static/media && \
     chmod -R 755 /qnode1.0_app/qnode10_app/static  && \
@@ -52,12 +49,10 @@ RUN python -m venv /py && \
     
     mkdir -p /qnode1.0_app/qnode10_app/staticfiles && \
     chmod -R 755 /qnode1.0_app/qnode10_app/staticfiles  && \
-    #chmod -R 755 /qnode1.0_app/qnode10_app/staticfiles/css  && \
-    #chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/staticfiles && \
+    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/staticfiles && \
 
     #chmod -R 755 /qnode0.0_app/qnode0_app/static/media  && \
     chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/static && \
-    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/staticfiles && \
     #chown -R qnode0:qnode0 /qnode0.0_app/qnode0_app/static/media && \
 
     mkdir -p /qnode1.0_app/qnode10_app/run/ && \
@@ -69,11 +64,13 @@ RUN python -m venv /py && \
     chmod -R 755 /scripts  && \
     chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/run/  && \
     chmod -R 755 /var/log/gunicorn  && \
-
+    
+    chmod -R u+x /scripts/gunicorn_run.sh &&\
     chmod -R u+x /scripts/run.sh &&\
     chmod -R +x /scripts
 
 ENV PATH="/scripts:/py/bin:$PATH"
+#COPY ./scripts/gunicorn.socket /qnode0.0_app/qnode0_app/run/
 
 USER qnode10
 
