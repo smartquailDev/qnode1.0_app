@@ -29,7 +29,7 @@ RUN python -m venv /py && \
     apk add --update --no-cache --virtual .tmp-deps && \
     apk add build-base  postgresql-dev gcc musl-dev python3-dev linux-headers && \
     apk add libffi-dev build-base py3-cffi py3-cryptography && \
-    apk add jpeg-dev   zlib-dev libjpeg build-base  wget font-config  && \
+    apk add jpeg-dev   zlib-dev libjpeg build-base  wget fonts-font-awesome && \
     apk add gtk+3.0 pango && \
     apk del libressl-dev && \
     apk add busybox-extras && \
