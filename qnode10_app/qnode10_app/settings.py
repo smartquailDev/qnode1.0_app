@@ -209,7 +209,7 @@ Configuration.configure(
 )
 
 # celery setup
-CELERY_BROKER_URL = 'amqp://guest:guest@localhost:5672//'
+CELERY_BROKER_URL = 'amqps://guest:guest@localhost:5672//'
 #CELERY_BROKER_URL = 'amqp://guest:guest@rabbitmq:5672//'
 #CELERY_BROKER_URL = 'redis://localhost:6379/0'
 CELERY_RESULT_BACKEND = 'redis://redis:6379'

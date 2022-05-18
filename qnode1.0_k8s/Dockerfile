@@ -12,6 +12,7 @@ RUN git clone https://github.com/smartquailDev/qnode1.0_app.git
 #COPY ./qnode0_app.dev/qnode0_app_env_dev/qnode0_app/ /qnode0_app
 COPY ./requirements.txt /requirements.txt
 COPY ./scripts /scripts
+COPY ./uwsgi.ini /uwsgi.ini
 
 #COPY ./.env /qnode0.1_app/qnode01_app/.env 
 #No olvidar sacar las variables de entorno.
@@ -42,6 +43,8 @@ RUN python -m venv /py && \
     apk add libressl-dev  && \
     apk del .tmp-deps && \
     adduser --disabled-password --no-create-home qnode10 && \
+
+    #Static Files
     mkdir -p /qnode1.0_app/qnode10_app/static && \
    # mkdir -p /qnode0.0_app/qnode0_app/static/media && \
     chmod -R 755 /qnode1.0_app/qnode10_app/static  && \
@@ -57,7 +60,10 @@ RUN python -m venv /py && \
     #chmod -R 755 /qnode0.0_app/qnode0_app/static/media  && \
     chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/static && \
     #chown -R qnode0:qnode0 /qnode0.0_app/qnode0_app/static/media && \
-
+    #Uswgi
+    mkdir -p  /var/log/uwsgi/ && \
+    chown -R qnode10:qnode10 /var/log/uwsgi/ && \
+    #GNUCORN
     mkdir -p /qnode1.0_app/qnode10_app/run/ && \
     mkdir -p /var/log/gunicorn &&\
     chown -R qnode10:qnode10 /var/log/gunicorn &&\
