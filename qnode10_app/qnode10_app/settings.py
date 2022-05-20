@@ -22,7 +22,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
-SECRET_KEY = 'dsfsadf'
+
+
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -38,9 +40,9 @@ ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'baton',
     #'account',
+    'django.contrib.contenttypes',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
@@ -74,12 +76,10 @@ INSTALLED_APPS = [
     'cart',
     'orders',
     'payment',
-    'baton.autodiscover',
     'storages',
     'social_django',
     'sorl.thumbnail',
-    
-    
+    'baton.autodiscover',   
 ]
 
 
