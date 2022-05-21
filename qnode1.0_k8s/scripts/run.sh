@@ -9,7 +9,7 @@ python manage.py migrate --noinput
 python manage.py createsuperuser --email $SUPERUSER_EMAIL --noinput || true
 python manage.py collectstatic --noinput 
 
-uwsgi --socket /qnode1.0_app/qnode10_app/qnode10_app.sock --workers 4 --master --enable-threads --module qnode10_app.wsgi --ini uwsgi_prod.ini --chmod-socket=666
+uwsgi  --workers 4 --master --enable-threads --module qnode10_app.wsgi --ini uwsgi_prod.ini --chmod-socket=666
 
 #python manage.py listen_port25 --noinput
 
