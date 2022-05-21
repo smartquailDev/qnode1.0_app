@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -e
-APP_PORT=${PORT:-9999}
+APP_PORT=${PORT:-9000}
 SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL:-"smartquail.info@gmail.com"}
 
 

@@ -21,7 +21,7 @@ COPY ./uwsgi_prod.ini /qnode1.0_app/qnode10_app/uwsgi_prod.ini
 WORKDIR /qnode1.0_app/qnode10_app/
 EXPOSE 443 
 EXPOSE 25
-EXPOSE 9999
+EXPOSE 9000
 EXPOSE 587
 
 RUN python -m venv /py && \
