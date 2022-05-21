@@ -61,7 +61,7 @@ RUN python -m venv /py && \
     chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/static && \
     #chown -R qnode0:qnode0 /qnode0.0_app/qnode0_app/static/media && \
     #Uswgi
-    chown -R qnode10_app:qnode10_app /qnode1.0_app/qnode10_app/qnode10.sock &&\
+    
     mkdir -p  /var/log/uwsgi/ && \
     chown -R qnode10:qnode10 /var/log/uwsgi/ && \
     #GNUCORN
@@ -73,6 +73,7 @@ RUN python -m venv /py && \
     
     chmod -R 755 /scripts  && \
     chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/run/  && \
+    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/qnode10.sock &&\
     chmod -R 755 /var/log/gunicorn  && \
     
     #chmod -R u+x /scripts/gunicorn_run.sh &&\
