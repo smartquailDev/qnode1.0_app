@@ -73,7 +73,7 @@ RUN python -m venv /py && \
     
     chmod -R 755 /scripts  && \
     chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/run/  && \
-    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/qnode10.sock &&\
+    chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/ &&\
     chmod -R 755 /var/log/gunicorn  && \
     
     #chmod -R u+x /scripts/gunicorn_run.sh &&\
