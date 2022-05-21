@@ -61,6 +61,7 @@ RUN python -m venv /py && \
     chown -R qnode10:qnode10 /qnode1.0_app/qnode10_app/static && \
     #chown -R qnode0:qnode0 /qnode0.0_app/qnode0_app/static/media && \
     #Uswgi
+    chown -R qnode10_app:qnode10_app /qnode1.0_app/qnode10_app/qnode10.sock &&\
     mkdir -p  /var/log/uwsgi/ && \
     chown -R qnode10:qnode10 /var/log/uwsgi/ && \
     #GNUCORN
@@ -84,3 +85,5 @@ ENV PATH="/scripts:/py/bin:$PATH"
 USER qnode10
 
 CMD ["run.sh"]
+
+
