@@ -1,7 +1,7 @@
 #!/bin/sh
 
 set -e
-APP_PORT=${PORT:-9000}
+APP_PORT=${PORT:-9999}
 SUPERUSER_EMAIL=${DJANGO_SUPERUSER_EMAIL:-"smartquail.info@gmail.com"}
 
 
@@ -9,7 +9,7 @@ python manage.py migrate --noinput
 python manage.py createsuperuser --email $SUPERUSER_EMAIL --noinput || true
 python manage.py collectstatic --noinput 
 
-uwsgi  --socket= 0.0.0.0:9999 --workers 4 --master --enable-threads --module qnode10_app.wsgi --ini uwsgi_prod.ini
+uwsgi  --socket= :9999 --workers 4 --master --enable-threads --module qnode10_app.wsgi --ini uwsgi_prod.ini
 
 #python manage.py listen_port25 --noinput
 
