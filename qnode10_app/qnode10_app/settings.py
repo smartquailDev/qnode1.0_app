@@ -32,7 +32,7 @@ EMAIL_BACKEND       = os.environ.get('EMAIL_BACKEND')
 EMAIL_USE_TLS       = True
 EMAIL_USE_SSL       = False
 
-SECRET_KEY = 'asfsafs'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 

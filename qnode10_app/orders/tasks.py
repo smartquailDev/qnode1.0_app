@@ -15,9 +15,9 @@ def order_created(order_id):
     message = 'Dear {},\n\nYou have successfully placed an order.\
                   Your order id is {}.'.format(order.first_name,
                                             order.id)
-    #mail_sent = send_mail(subject,
-                         # message,
-                         # 'smartquail.info@gmail.com',
-                         # [order.email])
-    return subject
-    #mail_sent
+    mail_sent = send_mail(subject,
+                          message,
+                          'smartquail.info@gmail.com',
+                          [order.email])
+    return mail_sent
+    
