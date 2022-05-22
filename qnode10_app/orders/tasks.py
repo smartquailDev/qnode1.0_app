@@ -17,7 +17,7 @@ def order_created(order_id):
                                             order.id)
     mail_sent = send_mail(subject,
                           message,
-                          'smartquail.info@gmail.com',
+                          'smartquail.info@localhost',
                           [order.email])
     return mail_sent
     
