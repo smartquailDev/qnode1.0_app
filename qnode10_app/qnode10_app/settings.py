@@ -22,7 +22,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 #SECRET_KEY = os.environ.get("DJANGO_SECRET_KEY")
 
-
+#Email setups
+EMAIL_HOST          = os.environ.get('EMAIL_HOST')
+EMAIL_PORT          =  os.environ.get('EMAIL_PORT')
+EMAIL_HOST_USER     = os.environ.get('EMAIL_HOST_USER ')
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
+DEFAULT_FROM_EMAIL  = EMAIL_HOST_USER
+EMAIL_BACKEND       = os.environ.get('EMAIL_BACKEND')
+EMAIL_USE_TLS       = True
+EMAIL_USE_SSL       = False
 
 SECRET_KEY = 'asfsafs'
 
@@ -84,15 +92,6 @@ INSTALLED_APPS = [
 
 
 
-#Email setups
-EMAIL_HOST          = 'smtp.gmail.com'
-EMAIL_PORT          =  587
-EMAIL_HOST_USER     = 'smartquail.info@gmail.com'
-EMAIL_HOST_PASSWORD = 'etazrnmirzvknhzr'
-DEFAULT_FROM_EMAIL  = EMAIL_HOST_USER
-EMAIL_BACKEND       = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_USE_TLS       = True
-EMAIL_USE_SSL       = False
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
